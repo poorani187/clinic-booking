@@ -1,0 +1,40 @@
+<!-- add_medicine.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Medicine</title>
+</head>
+<body>
+    <h1>Add Medicine</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Medicine</button>
+    </form>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Medicine</title>
+</head>
+<body>
+    <h2>Medicine Form</h2>
+    <form method="post" id="medicineForm">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById("medicineForm").addEventListener("submit", function(event) {
+            // You can add custom JS if needed, but this form will now submit to your Django view.
+        });
+    </script>
+</body>
+</html>

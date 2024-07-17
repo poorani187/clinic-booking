@@ -1,0 +1,73 @@
+
+<html>
+    <head>
+        <title>Medicine List</title>
+    </head>
+    <body>
+        <h1>List of Medicines</h1>
+        <ul>
+            {% for medicine in medicines %}
+                <li>{{ medicine.name }} - {{ medicine.description }} - ${{ medicine.price }}</li>
+            {% endfor %}
+        </ul>
+    </body>
+    </html>
+    
+    
+    
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medicine Form</title>
+
+</head>
+<body>
+
+<div class="Medicine">
+    <h2>Medicine Form</h2>
+    <form id="itemForm">
+        <div class="item-container">
+            <label for="item1">Medicine:</label>
+            <input type="text" id="item1" name="items[]" required>
+        </div>
+
+        <div class="item-container">
+            <label for="item2">Description:</label>
+            <input type="text" id="item2" name="items[]" required>
+        </div>
+
+        <div class="item-container">
+            <label for="item3">Price:</label>
+            <input type="text" id="item3" name="items[]" required>
+        </div>
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+<div id="result"></div>
+
+    <script>
+        // Function to handle form submission
+        document.getElementById("itemForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            // Get input values
+            var input1 = document.getElementById("item1").value;
+            var input2 = document.getElementById("item2").value;
+            var input3 = document.getElementById("item3").value;
+
+            // Display input values
+            var resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = "<h3>Products</h3>" +
+                                   "<p>Medicine: " + input1 + "</p>" +
+                                   "<p>Description: " + input2 + "</p>" +
+                                   "<p>Price: " + input3 + "</p>" +
+                                   "<h1> Have a nice day</h1> ";
+        });
+    </script>
+</body>
+</html>
